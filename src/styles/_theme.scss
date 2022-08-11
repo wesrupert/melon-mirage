@@ -1,0 +1,36 @@
+// Global theming
+
+// Spacing and sizing
+$gap-s: 8px;
+$gap-m: 16px;
+$gap-l: 32px;
+
+$radius-s: 4px;
+$radius-m: 8px;
+
+$font-s: 12px;
+$font-m: 14px;
+$font-l: 16px;
+$font-xl: 20px;
+
+// Colors
+$black: black;
+$white: white;
+$secondary: #F5F8FA;
+$tertiary: #E5EAED;
+$accent: #128079;
+$alert: #F34848;
+$gradient: linear-gradient(180deg, #C4C4C4, 0%, #000000 100%);
+
+
+$bg-primary: $white;
+$fg-primary: $black;
+$bg-secondary: $secondary;
+$fg-secondary: $black;
+$bg-gradient: $gradient;
+$fg-gradient: $white;
+
+$bg-accent: #128079;
+$fg-accent: white;
+$bg-alert: white;
+$fg-alert: #F34848;

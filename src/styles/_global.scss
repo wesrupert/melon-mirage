@@ -1,0 +1,43 @@
+@import '_theme.scss';
+
+#app {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $fg-primary;
+  background-color: $bg-primary;
+}
+
+h1 {
+    font-size: $font-xl;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: $font-l;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: $font-m;
+}
+
+p {
+    font-size: $font-s;
+}
+
+button {
+    font-size: $font-s;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: $radius-s;
+
+    color: $fg-primary;
+    background-color: $fg-primary;
+
+    &.secondary {
+        color: $fg-secondary;
+        background-color: $bg-secondary;
+    }
+}
