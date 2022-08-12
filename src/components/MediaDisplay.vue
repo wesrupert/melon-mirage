@@ -8,11 +8,11 @@
 </template>
 
 <script setup lang="ts">
+import MultiSizeDisplay from "@/components/displays/MultiSizeDisplay.vue";
+import SingleSizeDisplay from "@/components/displays/SingleSizeDisplay.vue";
 import { key } from "@/store";
 import { computed } from "@vue/reactivity";
 import { useStore } from "vuex";
-import MultiSizeDisplay from "@/components/displays/MultiSizeDisplay.vue";
-import SingleSizeDisplay from "@/components/displays/SingleSizeDisplay.vue";
 
 const store = useStore(key);
 
