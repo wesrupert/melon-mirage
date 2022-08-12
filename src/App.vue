@@ -4,9 +4,9 @@
     @close="onCloseAddSouceModal"
   />
   <div class="sidebar">
-    <button class="primary add-source" @click="onAddSourceClick">
-      Add Source
-    </button>
+    <div class="add-source">
+      <button class="primary" @click="onAddSourceClick">Add Source</button>
+    </div>
     <button
       v-if="showPlaceholder"
       class="secondary placeholder"
@@ -22,6 +22,7 @@
     </button>
 
     <MediaSource v-for="source in sources" :key="source.key" :source="source" />
+    <div class="spacer"></div>
   </div>
 </template>
 
@@ -55,12 +56,25 @@ function onCloseAddSouceModal() {
 .sidebar {
   width: clamp(200px, 33%, 300px);
   height: 100%;
-  padding: $gap-m;
+  padding: 0 $gap-m;
   border-right: 2px solid $border-color;
+  overflow-y: scroll;
 
   display: flex;
   flex-direction: column;
   gap: $gap-m;
+}
+
+.add-source {
+  background-color: $bg-primary;
+  position: sticky;
+  top: 0;
+  padding: $gap-m 0;
+  z-index: 10;
+
+  button {
+    width: 100%;
+  }
 }
 
 .placeholder {
@@ -82,5 +96,10 @@ function onCloseAddSouceModal() {
     font-size: $font-xxl;
     color: $accent;
   }
+}
+
+.spacer {
+  width: 100%;
+  padding-top: $gap-s;
 }
 </style>
