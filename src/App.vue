@@ -1,37 +1,46 @@
 <template>
-  <AddSourceModal
-    v-if="isAddSourceModalVisible"
-    @close="onCloseAddSouceModal"
-  />
-  <div class="sidebar">
-    <div class="add-source">
-      <button @click="onAddSourceClick">Add Source</button>
-    </div>
-    <button
-      v-if="showPlaceholder"
-      class="secondary placeholder"
-      @click="onAddSourceClick"
-    >
-      <div class="placeholder-contents">
-        <div>
-          <h1 class="add">+</h1>
-          <h2>Add media source</h2>
-          <p>Screenshare, Camera</p>
-        </div>
+  <div class="app">
+    <AddSourceModal
+      v-if="isAddSourceModalVisible"
+      @close="onCloseAddSouceModal"
+    />
+    <div class="sidebar">
+      <div class="add-source">
+        <button @click="onAddSourceClick">Add Source</button>
       </div>
-    </button>
+      <button
+        v-if="showPlaceholder"
+        class="secondary placeholder"
+        @click="onAddSourceClick"
+      >
+        <div class="placeholder-contents">
+          <div>
+            <h1 class="add">+</h1>
+            <h2>Add media source</h2>
+            <p>Screenshare, Camera</p>
+          </div>
+        </div>
+      </button>
 
-    <MediaSource v-for="source in sources" :key="source.key" :source="source" />
-    <div class="spacer"></div>
+      <MediaSource
+        v-for="source in sources"
+        :key="source.key"
+        :source="source"
+      />
+      <div class="spacer"></div>
+    </div>
+    <div class="main"></div>
+    <QuickButtons />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from "@vue/reactivity";
 import { useStore } from "vuex";
-import MediaSource from "./components/MediaSource.vue";
-import { key } from "./store";
 import AddSourceModal from "./components/AddSourceModal.vue";
+import MediaSource from "./components/MediaSource.vue";
+import QuickButtons from "./components/QuickButtons.vue";
+import { key } from "./store";
 
 const isAddSourceModalVisible = ref(false);
 
@@ -52,6 +61,14 @@ function onCloseAddSouceModal() {
 
 <style lang="scss">
 @import "@/styles/_global.scss";
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
 
 .sidebar {
   width: clamp(200px, 33%, 300px);
