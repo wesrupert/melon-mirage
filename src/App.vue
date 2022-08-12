@@ -1,5 +1,7 @@
 <template>
   <div class="app">
+    <div class="ruler-1" />
+    <div class="ruler-2" />
     <AddSourceModal
       v-if="isAddSourceModalVisible"
       @close="onCloseAddSouceModal"
@@ -22,14 +24,14 @@
         </div>
       </button>
 
-      <MediaSource
+      <SourceDisplay
         v-for="source in sources"
         :key="source.key"
         :source="source"
       />
       <div class="spacer"></div>
     </div>
-    <div class="main"></div>
+    <MediaDisplay class="main" />
     <QuickButtons />
   </div>
 </template>
@@ -38,8 +40,9 @@
 import { computed, ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 import AddSourceModal from "./components/AddSourceModal.vue";
-import MediaSource from "./components/MediaSource.vue";
+import MediaDisplay from "./components/MediaDisplay.vue";
 import QuickButtons from "./components/QuickButtons.vue";
+import SourceDisplay from "./components/SourceDisplay.vue";
 import { key } from "./store";
 
 const isAddSourceModalVisible = ref(false);
@@ -70,8 +73,26 @@ function onCloseAddSouceModal() {
   justify-content: stretch;
 }
 
+.ruler-1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 800px;
+  border-left: 1px solid red;
+  z-index: 2000;
+}
+
+.ruler-2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1750px;
+  border-left: 1px solid red;
+  z-index: 2000;
+}
+
 .sidebar {
-  width: clamp(200px, 33%, 300px);
+  width: clamp(250px, 33%, 300px);
   height: 100%;
   padding: 0 $gap-m;
   border-right: 2px solid $border-color;

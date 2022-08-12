@@ -7,6 +7,7 @@ interface Media {
   key: number;
   title: string;
   type: MediaSourceType;
+  source: string;
 }
 
 interface State {

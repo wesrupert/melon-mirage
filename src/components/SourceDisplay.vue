@@ -1,7 +1,7 @@
 <template>
   <div class="source">
     <div class="source-stream">
-      <MediaStream class="source-stream" :type="props.source.type" />
+      <MediaStream class="source-stream" :source="props.source.source" />
       <div class="overlay">
         <button v-if="isSourceOnStream" class="tertiary" @click="onHideClick">
           Hide on stream

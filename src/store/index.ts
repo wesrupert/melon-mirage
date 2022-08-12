@@ -1,4 +1,4 @@
-import { Media, MediaSourceType, State } from "@/vuex";
+import { MediaSourceType, State } from "@/vuex";
 import { InjectionKey } from "vue";
 import { createStore, Store } from "vuex";
 
@@ -29,6 +29,10 @@ export default createStore<State>({
           title: payload.title,
           type: payload.type,
           key: state.sources.length,
+          source:
+            payload.type === "screen"
+              ? "/screenshare-image.png"
+              : "/webcam-image.png",
         },
       ];
     },
