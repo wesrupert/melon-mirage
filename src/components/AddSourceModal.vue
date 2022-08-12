@@ -60,7 +60,7 @@ function onSourceClick(source: NewSourceMetadata) {
 </script>
 
 <style lang="scss">
-@import "@/styles/_theme.scss";
+@import "@/styles/theme";
 
 .mask {
   z-index: 50;

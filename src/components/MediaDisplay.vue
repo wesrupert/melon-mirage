@@ -11,8 +11,8 @@
 import { key } from "@/store";
 import { computed } from "@vue/reactivity";
 import { useStore } from "vuex";
-import MultiSizeDisplay from "./displays/MultiSizeDisplay.vue";
-import SingleSizeDisplay from "./displays/SingleSizeDisplay.vue";
+import MultiSizeDisplay from "@/components/displays/MultiSizeDisplay.vue";
+import SingleSizeDisplay from "@/components/displays/SingleSizeDisplay.vue";
 
 const store = useStore(key);
 
@@ -27,12 +27,16 @@ const currentVideo = computed(() =>
     : undefined
 );
 
-const isVideoAndScreen = computed(() => !!(currentScreen && currentVideo));
-const isVideoOnly = computed(() => !!(!currentScreen && currentVideo));
+const isVideoAndScreen = computed(
+  () => !!(currentScreen.value && currentVideo.value)
+);
+const isVideoOnly = computed(
+  () => !!(!currentScreen.value && currentVideo.value)
+);
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/_theme.scss";
+@import "@/styles/theme";
 
 .display {
   width: 100%;

@@ -63,7 +63,7 @@ function onCloseAddSouceModal() {
 </script>
 
 <style lang="scss">
-@import "@/styles/_global.scss";
+@import "@/styles/global";
 
 .app {
   width: 100%;

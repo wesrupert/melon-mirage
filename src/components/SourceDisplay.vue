@@ -39,7 +39,7 @@ function onHideClick() {
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/_theme.scss";
+@import "@/styles/theme";
 
 .source {
   @include ratio-wrapper;

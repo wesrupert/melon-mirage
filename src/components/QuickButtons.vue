@@ -9,7 +9,7 @@
 </template>
 
 <style lang="scss">
-@import "@/styles/_theme.scss";
+@import "@/styles/theme";
 
 .quick-buttons {
   position: absolute;

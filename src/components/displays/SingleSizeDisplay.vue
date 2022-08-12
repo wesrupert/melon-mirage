@@ -2,7 +2,7 @@
   <div class="single-screen">
     <div class="margin-wrapper">
       <div class="ratio-wrapper">
-        <MediaStream class="display" :source="props.source" />
+        <MediaStream class="stream" :source="props.source" />
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@ const props = defineProps<{ source?: string }>();
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/_theme.scss";
+@import "@/styles/theme";
 @import "_displays.scss";
 
 .single-screen {
@@ -36,7 +36,7 @@ const props = defineProps<{ source?: string }>();
   @include ratio-wrapper;
 }
 
-.display {
+.stream {
   @include ratio-contents;
 }
 </style>
