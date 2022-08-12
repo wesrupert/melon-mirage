@@ -4,13 +4,21 @@
   box-sizing: border-box;
 }
 
-#app {
+html, body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $fg-primary;
   background-color: $bg-primary;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
 }
 
 h1 {

@@ -12,6 +12,7 @@ $font-s: 12px;
 $font-m: 14px;
 $font-l: 16px;
 $font-xl: 20px;
+$font-xxl: 34px;
 
 $ratio-widescreen: calc(100% * 9/16);
 
@@ -36,6 +37,7 @@ $fg-accent: white;
 $bg-alert: white;
 $fg-alert: #F34848;
 
+$border-color: $tertiary;
 
 @mixin gradient {
   color: $fg-gradient;
@@ -68,4 +70,10 @@ $fg-alert: #F34848;
   padding-right: $right;
   padding-left: $left;
   width: calc(100% - $right - $left);
+}
+
+@mixin fill-h-with-padding($top: $gap-s, $bottom: $top) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+  height: calc(100% - $top - $bottom);
 }

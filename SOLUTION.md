@@ -2,6 +2,8 @@
 - First time using Vue 3, prior experience was Vue 2
 - Used as opportunity to learn composition API
 - Transparent rounded borders threw me a curveball, harder to solve than I expected
+- I wasn't aware Vuex had been deprecated! I didn't want to also add that learning to this assignment, but I'll have to check out its successor.
+- Looking back, I would probably implement the media state a bit simpler for this assignment, but I wanted to avoid keeping references across state properties in case more editing features came along in the spirit of the assignment. It took up more of my time than it needed to.
 
 # Takeaways
 

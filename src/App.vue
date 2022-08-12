@@ -1,31 +1,77 @@
 <template>
-  <h1>Hello world!</h1>
-  <p>How's it going?</p>
   <div class="sidebar">
-    <MediaSource type="screen" />
-    <MediaSource type="video" />
-    <MediaSource title="Hello title!" type="video" />
-    <MediaSource title="Hello title!" type="video">
-      <button class="primary">Click me!</button>
-    </MediaSource>
-    <MediaSource title="Hello title!" type="screen">
-      <div>Hello slot!</div>
-      <button class="primary">Click me!</button>
-    </MediaSource>
+    <button class="primary add-source" @click="onAddSourceClick">
+      Add Source
+    </button>
+    <button
+      v-if="showPlaceholder"
+      class="secondary placeholder"
+      @click="onAddSourceClick"
+    >
+      <div class="placeholder-contents">
+        <div>
+          <h1 class="add">+</h1>
+          <h2>Add media source</h2>
+          <p>Screenshare, Camera</p>
+        </div>
+      </div>
+    </button>
+
+    <MediaSource v-for="source in sources" :key="source.key" :source="source" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from "@vue/reactivity";
+import { useStore } from "vuex";
 import MediaSource from "./components/MediaSource.vue";
+import { key } from "./store";
+
+const store = useStore(key);
+
+const sources = computed(() => store.state.sources);
+
+const showPlaceholder = computed(
+  () => /* store.state.sources.length === 0 */ true
+);
+
+function onAddSourceClick() {
+  // TODO
+}
 </script>
 
 <style lang="scss">
 @import "styles/_global.scss";
 
 .sidebar {
-  width: clamp(200px, 50%, 300px);
+  width: clamp(200px, 33%, 300px);
+  height: 100%;
+  padding: $gap-m;
+  border-right: 2px solid $border-color;
+
   display: flex;
   flex-direction: column;
   gap: $gap-m;
+}
+
+.placeholder {
+  padding: 0;
+  @include ratio-wrapper;
+}
+
+.placeholder-contents {
+  @include ratio-contents;
+  font-weight: normal;
+  line-height: 1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-size: $font-xxl;
+    color: $accent;
+  }
 }
 </style>

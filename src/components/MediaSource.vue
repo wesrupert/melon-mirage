@@ -1,23 +1,43 @@
 <template>
   <div class="source">
     <div class="source-stream">
-      <MediaStream class="source-stream" :type="props.type" />
+      <MediaStream class="source-stream" :type="props.source.type" />
       <div class="overlay">
-        <slot />
+        <button v-if="isSourceOnStream" class="tertiary" @click="onHideClick">
+          Hide on stream
+        </button>
+        <button v-else class="primary" @click="onShowClick">
+          Show on stream
+        </button>
       </div>
     </div>
-    <div v-if="title" class="title">{{ props.title }}</div>
+    <div v-if="props.source.title" class="title">{{ props.source.title }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { key, Mutations } from "@/store";
+import { Media } from "@/vuex";
+import { computed, defineProps } from "vue";
+import { useStore } from "vuex";
 import MediaStream from "./MediaStream.vue";
 
-const props = defineProps<{
-  title?: string;
-  type: "video" | "screen";
-}>();
+const store = useStore(key);
+const props = defineProps<{ source: Media }>();
+
+const isSourceOnStream = computed(() =>
+  props.source.type === "screen"
+    ? props.source.key === store.state.currentScreen
+    : props.source.key === store.state.currentVideo
+);
+
+function onShowClick() {
+  store.commit(Mutations.SHOW_SOURCE, props.source.key);
+}
+
+function onHideClick() {
+  store.commit(Mutations.HIDE_SOURCE, props.source.key);
+}
 </script>
 
 <style scoped lang="scss">
@@ -50,6 +70,7 @@ const props = defineProps<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .source-stream {
