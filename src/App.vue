@@ -1,4 +1,8 @@
 <template>
+  <AddSourceModal
+    v-if="isAddSourceModalVisible"
+    @close="onCloseAddSouceModal"
+  />
   <div class="sidebar">
     <button class="primary add-source" @click="onAddSourceClick">
       Add Source
@@ -22,26 +26,31 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "@vue/reactivity";
+import { computed, ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 import MediaSource from "./components/MediaSource.vue";
 import { key } from "./store";
+import AddSourceModal from "./components/AddSourceModal.vue";
+
+const isAddSourceModalVisible = ref(false);
 
 const store = useStore(key);
 
 const sources = computed(() => store.state.sources);
 
-const showPlaceholder = computed(
-  () => /* store.state.sources.length === 0 */ true
-);
+const showPlaceholder = computed(() => store.state.sources.length === 0);
 
 function onAddSourceClick() {
-  // TODO
+  isAddSourceModalVisible.value = true;
+}
+
+function onCloseAddSouceModal() {
+  isAddSourceModalVisible.value = false;
 }
 </script>
 
 <style lang="scss">
-@import "styles/_global.scss";
+@import "@/styles/_global.scss";
 
 .sidebar {
   width: clamp(200px, 33%, 300px);

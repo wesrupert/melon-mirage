@@ -12,20 +12,9 @@ export const Mutations = {
 
 export default createStore<State>({
   state: () => ({
-    sources: [
-      {
-        title: "Test screen",
-        key: 0,
-        type: "screen",
-      },
-      {
-        title: "Test video",
-        key: 1,
-        type: "video",
-      },
-    ],
+    sources: [],
     layout: 0,
-    currentScreen: 0,
+    currentScreen: undefined,
     currentVideo: undefined,
   }),
   getters: {},
