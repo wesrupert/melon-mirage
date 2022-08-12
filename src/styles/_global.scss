@@ -1,5 +1,9 @@
 @import '_theme.scss';
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,14 +34,20 @@ p {
 button {
     font-size: $font-s;
     font-weight: bold;
+    padding: $gap-s $gap-m;
     border: 1px solid transparent;
     border-radius: $radius-s;
 
-    color: $fg-primary;
-    background-color: $fg-primary;
+    color: $fg-accent;
+    background-color: $bg-accent;
 
     &.secondary {
         color: $fg-secondary;
         background-color: $bg-secondary;
+    }
+
+    &.tertiary {
+        color: $fg-alert;
+        background-color: $bg-alert;
     }
 }

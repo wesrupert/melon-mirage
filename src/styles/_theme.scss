@@ -13,6 +13,8 @@ $font-m: 14px;
 $font-l: 16px;
 $font-xl: 20px;
 
+$ratio-widescreen: calc(100% * 9/16);
+
 // Colors
 $black: black;
 $white: white;
@@ -20,8 +22,7 @@ $secondary: #F5F8FA;
 $tertiary: #E5EAED;
 $accent: #128079;
 $alert: #F34848;
-$gradient: linear-gradient(180deg, #C4C4C4, 0%, #000000 100%);
-
+$gradient: linear-gradient(#C4C4C400, #000000);
 
 $bg-primary: $white;
 $fg-primary: $black;
@@ -34,3 +35,37 @@ $bg-accent: #128079;
 $fg-accent: white;
 $bg-alert: white;
 $fg-alert: #F34848;
+
+
+@mixin gradient {
+  color: $fg-gradient;
+  background-image: $bg-gradient;
+}
+
+@mixin rounded-corners($radius: $radius-m) {
+  border: solid 0px transparent;
+  border-radius: $radius;
+
+}
+
+@mixin ratio-wrapper($ratio: $ratio-widescreen) {
+    position: relative;
+    max-width: 100%;
+    height: 0;
+    padding-bottom: $ratio;
+}
+
+@mixin ratio-contents {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin fill-w-with-padding($right: $gap-s, $left: $right) {
+  padding-right: $right;
+  padding-left: $left;
+  width: calc(100% - $right - $left);
+}

@@ -1,5 +1,7 @@
 # Notes
-- 
+- First time using Vue 3, prior experience was Vue 2
+- Used as opportunity to learn composition API
+- Transparent rounded borders threw me a curveball, harder to solve than I expected
 
 # Takeaways
 
