@@ -6,9 +6,7 @@
         <button v-if="isSourceOnStream" class="tertiary" @click="onHideClick">
           Hide on stream
         </button>
-        <button v-else class="primary" @click="onShowClick">
-          Show on stream
-        </button>
+        <button v-else @click="onShowClick">Show on stream</button>
       </div>
     </div>
     <div v-if="props.source.title" class="title">{{ props.source.title }}</div>

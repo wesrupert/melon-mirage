@@ -5,7 +5,7 @@
   />
   <div class="sidebar">
     <div class="add-source">
-      <button class="primary" @click="onAddSourceClick">Add Source</button>
+      <button @click="onAddSourceClick">Add Source</button>
     </div>
     <button
       v-if="showPlaceholder"

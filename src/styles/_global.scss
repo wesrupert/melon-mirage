@@ -48,14 +48,41 @@ button {
 
     color: $fg-accent;
     background-color: $bg-accent;
+    transition: all ease .2s;
+
+    &:hover {
+        background-color: $accent-hover;
+    }
+
+    &:active {
+        background-color: $accent-click;
+    }
 
     &.secondary {
         color: $fg-secondary;
         background-color: $bg-secondary;
+
+        &:hover {
+            background-color: $tertiary;
+        }
+
+        &:active {
+            background-color: $bg-primary;
+        }
     }
 
     &.tertiary {
         color: $fg-alert;
         background-color: $bg-alert;
+
+        &:hover {
+            color: $fg-accent;
+            background-color: $alert-hover;
+        }
+
+        &:active {
+            color: $fg-accent;
+            background-color: $alert-click;
+        }
     }
 }
