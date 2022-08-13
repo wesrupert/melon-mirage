@@ -1,40 +1,36 @@
 <template>
-  <div class="multi-size">
-    <div class="display">
-      <div class="ratio-wrapper">
-        <div class="size-wrapper">
-          <MediaStream
-            class="stream"
-            :class="{
-              small: showSmallSize,
-              medium: showMediumSize,
-              large: showLargeSize,
-            }"
-            :source="props.source"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="layouts-wrapper">
-      <div class="layouts">
-        <LayoutButton
-          token="webcam-l"
-          :selected="showLargeSize"
-          @click="onShowLargeSizeClicked"
-        />
-        <LayoutButton
-          token="webcam-m"
-          :selected="showMediumSize"
-          @click="onShowMediumSizeClicked"
-        />
-        <LayoutButton
-          token="webcam-s"
-          :selected="showSmallSize"
-          @click="onShowSmallSizeClicked"
+  <TemplateDisplay>
+    <template #view>
+      <div class="size-wrapper">
+        <MediaStream
+          class="stream"
+          :class="{
+            small: showSmallSize,
+            medium: showMediumSize,
+            large: showLargeSize,
+          }"
+          :source="props.source"
         />
       </div>
-    </div>
-  </div>
+    </template>
+    <template #layouts>
+      <LayoutButton
+        token="webcam-l"
+        :selected="showLargeSize"
+        @click="onShowLargeSizeClicked"
+      />
+      <LayoutButton
+        token="webcam-m"
+        :selected="showMediumSize"
+        @click="onShowMediumSizeClicked"
+      />
+      <LayoutButton
+        token="webcam-s"
+        :selected="showSmallSize"
+        @click="onShowSmallSizeClicked"
+      />
+    </template>
+  </TemplateDisplay>
 </template>
 
 <script setup lang="ts">
@@ -42,6 +38,7 @@ import LayoutButton from "@/components/LayoutButton.vue";
 import MediaStream from "@/components/MediaStream.vue";
 import { computed } from "@vue/reactivity";
 import { defineProps, ref } from "vue";
+import TemplateDisplay from "./TemplateDisplay.vue";
 
 type Size = "s" | "m" | "l";
 
@@ -68,30 +65,8 @@ function onShowSmallSizeClicked() {
 
 <style scoped lang="scss">
 @import "@/styles/theme";
-@import "./displays";
-
-.multi-size {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: $display-gap-m;
-}
-
-.display {
-  width: min(100%, $display-max-width);
-  padding: $display-gap-m;
-}
-
-.ratio-wrapper {
-  width: 100%;
-  @include ratio-wrapper;
-}
 
 .size-wrapper {
-  @include ratio-contents;
   background-color: $black;
 }
 
@@ -103,19 +78,5 @@ function onShowSmallSizeClicked() {
   &.medium {
     transform: scale(80%);
   }
-}
-
-.layouts-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.layouts {
-  display: grid;
-  gap: $gap-s;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  padding: $gap-s;
 }
 </style>
