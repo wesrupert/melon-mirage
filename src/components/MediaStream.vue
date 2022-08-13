@@ -19,6 +19,7 @@ const props = defineProps<{ source?: string }>();
   height: 100%;
   background-color: black;
   background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 </style>

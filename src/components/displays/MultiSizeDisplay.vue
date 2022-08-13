@@ -44,22 +44,22 @@ type Size = "s" | "m" | "l";
 
 const props = defineProps<{ source?: string }>();
 
-const style = ref<Size>("l");
+const layout = ref<Size>("l");
 
-const showSmallSize = computed(() => style.value === "s");
-const showMediumSize = computed(() => style.value === "m");
-const showLargeSize = computed(() => style.value === "l");
+const showSmallSize = computed(() => layout.value === "s");
+const showMediumSize = computed(() => layout.value === "m");
+const showLargeSize = computed(() => layout.value === "l");
 
 function onShowLargeSizeClicked() {
-  style.value = "l";
+  layout.value = "l";
 }
 
 function onShowMediumSizeClicked() {
-  style.value = "m";
+  layout.value = "m";
 }
 
 function onShowSmallSizeClicked() {
-  style.value = "s";
+  layout.value = "s";
 }
 </script>
 

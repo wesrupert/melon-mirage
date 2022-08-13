@@ -1,14 +1,18 @@
 <template>
   <div class="display">
-    <!-- <MultiLayoutDisplay v-if="isVideoAndScreen" /> -->
-    <!-- <MultiSizeDisplay v-else-if="isVideoOnly" /> -->
-    <MultiSizeDisplay v-if="isVideoOnly" :source="currentVideo?.source" />
+    <MultiSourceDisplay
+      v-if="isVideoAndScreen"
+      :stream-source="currentScreen?.source"
+      :video-source="currentVideo?.source"
+    />
+    <MultiSizeDisplay v-else-if="isVideoOnly" :source="currentVideo?.source" />
     <SingleSizeDisplay v-else :source="currentScreen?.source" />
   </div>
 </template>
 
 <script setup lang="ts">
 import MultiSizeDisplay from "@/components/displays/MultiSizeDisplay.vue";
+import MultiSourceDisplay from "@/components/displays/MultiSourceDisplay.vue";
 import SingleSizeDisplay from "@/components/displays/SingleSizeDisplay.vue";
 import { key } from "@/store";
 import { computed } from "@vue/reactivity";
