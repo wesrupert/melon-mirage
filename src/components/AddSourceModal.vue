@@ -77,8 +77,7 @@ function onSourceClick(source: NewSourceMetadata) {
 
 .modal {
   @include rounded-corners($radius-l);
-  max-width: 70%;
-  max-height: 80%;
+  width: clamp(300px, 70%, 500px);
   padding: $gap-l;
 
   background-color: $bg-primary;

@@ -88,6 +88,7 @@ function onCloseAddSouceModal() {
   position: sticky;
   top: 0;
   padding: $gap-m 0;
+  overflow: visible;
   z-index: 10;
 
   button {
@@ -103,15 +104,22 @@ function onCloseAddSouceModal() {
 .placeholder-contents {
   @include ratio-contents;
   font-weight: normal;
-  line-height: 1em;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  h1,
+  h2,
+  p {
+    line-height: 1em;
+    margin: $gap-s;
+  }
+
   h1 {
     font-size: $font-xxl;
+    margin: 0;
     color: $accent;
   }
 }

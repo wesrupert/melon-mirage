@@ -22,7 +22,6 @@ $display-gap-m: 32px;
 .viewport {
   width: 100%;
   height: 100%;
-  padding: $display-gap-m;
 
   display: flex;
   flex-direction: column;
@@ -48,6 +47,9 @@ $display-gap-m: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  // Padding to help keep buttons above the go live tray
+  padding-bottom: $gap-l;
 }
 
 .layouts {
