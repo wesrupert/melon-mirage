@@ -1,7 +1,9 @@
 <template>
   <div
     class="media"
-    :style="{ 'background-image': `url(${props.source})` }"
+    :style="{
+      'background-image': props.source ? `url(${props.source})` : 'unset',
+    }"
   ></div>
 </template>
 

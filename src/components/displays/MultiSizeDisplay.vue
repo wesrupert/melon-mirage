@@ -17,33 +17,28 @@
     </div>
     <div class="layouts-wrapper">
       <div class="layouts">
-        <button
-          class="large"
-          :class="{ selected: showLargeSize }"
+        <LayoutButton
+          token="webcam-l"
+          :selected="showLargeSize"
           @click="onShowLargeSizeClicked"
-        >
-          <img src="@/assets/user.png" />
-        </button>
-        <button
-          class="medium"
-          :class="{ selected: showMediumSize }"
+        />
+        <LayoutButton
+          token="webcam-m"
+          :selected="showMediumSize"
           @click="onShowMediumSizeClicked"
-        >
-          <img src="@/assets/user.png" />
-        </button>
-        <button
-          class="small"
-          :class="{ selected: showSmallSize }"
+        />
+        <LayoutButton
+          token="webcam-s"
+          :selected="showSmallSize"
           @click="onShowSmallSizeClicked"
-        >
-          <img src="@/assets/user.png" />
-        </button>
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import LayoutButton from "@/components/LayoutButton.vue";
 import MediaStream from "@/components/MediaStream.vue";
 import { computed } from "@vue/reactivity";
 import { defineProps, ref } from "vue";
@@ -122,34 +117,5 @@ function onShowSmallSizeClicked() {
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   padding: $gap-s;
-
-  button {
-    padding: $gap-s $gap-l;
-    min-height: 2em;
-    min-width: 4em;
-    padding: 0;
-    background-color: $accent-hover;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      margin: 0;
-      object-fit: none;
-      background-color: $bg-accent;
-    }
-
-    &.small {
-      padding: 20%;
-    }
-
-    &.medium {
-      padding: 10%;
-    }
-  }
 }
 </style>

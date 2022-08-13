@@ -1,7 +1,5 @@
 <template>
   <div class="app">
-    <div class="ruler-1" />
-    <div class="ruler-2" />
     <AddSourceModal
       v-if="isAddSourceModalVisible"
       @close="onCloseAddSouceModal"
@@ -71,24 +69,6 @@ function onCloseAddSouceModal() {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-}
-
-.ruler-1 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 800px;
-  border-left: 1px solid red;
-  z-index: 2000;
-}
-
-.ruler-2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 1750px;
-  border-left: 1px solid red;
-  z-index: 2000;
 }
 
 .sidebar {
